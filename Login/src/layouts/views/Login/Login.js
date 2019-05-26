@@ -1,7 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
 import { View, ActivityIndicator } from 'react-native'
-import { Card, CardSection, Button, Input, Message } from './../../../components'
+import { Card, CardSection, Button, Input, Message } from '../../../components'
 
 class Login extends React.Component{
     state = {
@@ -37,9 +37,6 @@ class Login extends React.Component{
 
     }
     render(){
-        const loader = this.state.loading ? 
-            <ActivityIndicator size="small" color="#00ff00" /> 
-            : '';
         return(
             <View>
                 <Card>
@@ -66,7 +63,7 @@ class Login extends React.Component{
                         success={ this.state.success }
                     />
                     <CardSection>
-                        <Button pressed={ this.submitLogin } loader={ loader } >
+                        <Button pressed={ this.submitLogin } loader={ this.loading } >
                            Login
                         </Button>
                     </CardSection>

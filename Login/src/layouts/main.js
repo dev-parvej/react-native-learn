@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 import { Header, Button } from '../components'
-import Login from './views/Lgin/Login'
+import Login from './views/Login/Login'
 import firebase from 'firebase'
 
 class Main extends React.Component{
