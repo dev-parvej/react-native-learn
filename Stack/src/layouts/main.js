@@ -1,9 +1,13 @@
 import React from 'react'
 import { Header } from '../components'
+import Library from './Libraries/Libraries'
 
 const main = props => {
     return (
-        <Header title="Stack" />
+        <React.Fragment>
+            <Header title="Stack" />
+            <Library />
+        </React.Fragment>
     );
 }
 

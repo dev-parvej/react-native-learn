@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
+import libraries from './library'
+import selectedLibrary from './selectedLibrary'
 
 const reducers = combineReducers({
-    libraries: (state = [], action) => {
-        return state;
-    }
+    libraries: libraries,
+    selectedLibraryId: selectedLibrary
 });
 
 export default reducers;
