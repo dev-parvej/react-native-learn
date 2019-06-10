@@ -6,7 +6,9 @@ const initialState = {
     password: '',
     loader: false,
     authenticate: false,
-    name: ''
+    name: '',
+    error: false,
+    message: ''
 }
 const Auth = (state = initialState, action) => {
     switch(action.type){
@@ -16,6 +18,14 @@ const Auth = (state = initialState, action) => {
             return setReduxState(state, { password: action.payload })
         case actions.SET_LOADER:
             return setReduxState(state, { loader: action.payload })
+        case actions.LOGIN: 
+            return setReduxState(state, { authenticate: true, name: action.payload.name })
+        case actions.SET_ERROR: 
+            return setReduxState(state, { 
+                authenticate: false,
+                error: !action.payload.status,
+                message: action.payload.message 
+            })
         default:
             return state
     }

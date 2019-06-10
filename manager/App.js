@@ -9,6 +9,7 @@ import reducers from './src/Store'
 
 const store = createStore(
   reducers, 
+  {},
   applyMiddleware(thunk)
 );
 

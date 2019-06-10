@@ -2,11 +2,10 @@ import React from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
 import * as actions from './../../Store/actions/auth'
-import { Input, Card, CardSection, Button } from './../../Components'
+import { Input, Card, CardSection, Button, Message } from './../../Components'
 
 class LoginForm extends React.Component{
     render(){
-        console.log(this.props);
         return(
             <View>
                 <Card>
@@ -27,6 +26,7 @@ class LoginForm extends React.Component{
                             changed={ password => this.props.setPassword(password) }
                         />
                     </CardSection>
+                    <Message error={ this.props.error } success={ this.props.success } />
                     <CardSection>
                         <Button loader={ this.props.loader }
                             pressed={this.props.login}
@@ -42,7 +42,9 @@ const mapStateToProps = (state) => {
     return {
         email: state.auth.email,
         password: state.auth.password,
-        loader: state.auth.loader
+        loader: state.auth.loader,
+        success: state.auth.error ? null : state.auth.message,
+        error: state.auth.error ? state.auth.message : null,
     }
 }
 
